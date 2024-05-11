@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userController;
 use App\Http\Controllers\registerController;
 
 /*
@@ -25,6 +26,13 @@ Route::get('/helloworld', function () {
 
 Route::get('/register', function () {
     return view('register');
-});
+})->name('register.show');
+
+
+Route::get('/showData' , [userController::class, 'showData'])->name('user.data');
+
+Route::delete('/showData/delete/{id}' , [userController::class, 'destroy'])->name('user.delete');
+
+
 
 Route::post('/register/add',[registerController::class ,'register' ])->name('register.add');

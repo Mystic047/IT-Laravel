@@ -15,14 +15,10 @@ class registerController extends Controller
             'password' => 'required|min:8|max:13',
         ]);
 
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
-
         $user = new User;
         $user->fill($request->all());
         $user->save();
-
-        return back()->with(['success' => 'User has been saved!']);
+        
+       return back()->with(['success' => 'User has been saved!']);
     }
 }
