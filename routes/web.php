@@ -29,10 +29,9 @@ Route::get('/register', function () {
 })->name('register.show');
 
 
+
+Route::post('/register/add',[userController::class ,'register' ])->name('register.add');
 Route::get('/showData' , [userController::class, 'showData'])->name('user.data');
-
 Route::delete('/showData/delete/{id}' , [userController::class, 'destroy'])->name('user.delete');
-
-
-
-Route::post('/register/add',[registerController::class ,'register' ])->name('register.add');
+Route::get('/showEditForm/{id}', [userController::class, 'showEdit'])->name('user.editform');
+Route::put('/showEditForm/update/{id}', [userController::class, 'update'])->name('user.update');

@@ -19,6 +19,6 @@ class registerController extends Controller
         $user->fill($request->all());
         $user->save();
         
-       return back()->with(['success' => 'User has been saved!']);
+        return redirect()->route('user.data')->with(['success' => 'User has been registered successfully']);
     }
 }
